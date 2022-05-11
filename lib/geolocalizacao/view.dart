@@ -19,14 +19,20 @@ class GeoLocalizacaoView extends StatelessWidget {
             AnimatedBuilder(
               animation: controller,
               builder: (_, _child) {
-                return const Text(
-                  "data",
-                  style: TextStyle(fontSize: 30),
+                if (controller.erro != '') {
+                  return Text(
+                    controller.erro,
+                    style: const TextStyle(fontSize: 30),
+                  );
+                }
+                return Text(
+                  "Lat: ${controller.lat} Long: ${controller.log}",
+                  style: const TextStyle(fontSize: 30),
                 );
               },
             ),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: controller.getPosicao,
               child: const Text("Capturar"),
             )
           ],
