@@ -12,7 +12,7 @@ class CustomDrawer extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (ctx) => const GeoLocalizacaoView(),
+                builder: (ctx) => GeoLocalizacaoView(),
               ));
             },
             child: const Text('Geolocalização'),
