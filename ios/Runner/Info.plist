@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSFaceIDUsageDescription</key>
+	<string>Por que meu aplicativo está autenticando usando o ID de rosto?</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Este aplicativo precisa de acesso ao microfone.</string>
 	<key>NSCameraUsageDescription</key>
