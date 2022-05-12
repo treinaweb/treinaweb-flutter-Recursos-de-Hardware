@@ -22,11 +22,15 @@ class CameraView extends StatelessWidget {
                 icon: const Icon(Icons.add_a_photo),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.acessGaleryMultipleImage();
+                },
                 icon: const Icon(Icons.photo_library),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.acessGalery();
+                },
                 icon: const Icon(Icons.photo_sharp),
               )
             ],
