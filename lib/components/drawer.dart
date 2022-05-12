@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hardware/camera/view.dart';
+import 'package:hardware/face_touch_id/view.dart';
 import 'package:hardware/geolocalizacao/view.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -25,6 +26,14 @@ class CustomDrawer extends StatelessWidget {
               ));
             },
             child: const Text('Câmera'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (ctx) => const TouchFaceIDView(),
+              ));
+            },
+            child: const Text('Touch Face ID'),
           )
         ],
       ),
