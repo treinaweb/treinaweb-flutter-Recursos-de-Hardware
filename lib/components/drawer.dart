@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hardware/camera/view.dart';
 import 'package:hardware/geolocalizacao/view.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -16,6 +17,14 @@ class CustomDrawer extends StatelessWidget {
               ));
             },
             child: const Text('Geolocalização'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (ctx) => CameraView(),
+              ));
+            },
+            child: const Text('Câmera'),
           )
         ],
       ),
