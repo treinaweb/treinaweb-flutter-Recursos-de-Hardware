@@ -18,7 +18,9 @@ class CameraView extends StatelessWidget {
           Row(
             children: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.acessCam();
+                },
                 icon: const Icon(Icons.add_a_photo),
               ),
               IconButton(
@@ -41,9 +43,11 @@ class CameraView extends StatelessWidget {
               return SizedBox(
                 height: MediaQuery.of(context).size.height * 0.7,
                 child: ListView.builder(
-                  itemCount: 0,
+                  itemCount: controller.listImages.length,
                   itemBuilder: (_ctx, i) {
-                    return SizedBox();
+                    final img = controller.listImages[i];
+
+                    return Image.file(img);
                   },
                 ),
               );

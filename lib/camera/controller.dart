@@ -25,4 +25,12 @@ class CameraController extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  Future<void> acessCam() async {
+    final XFile? img = await _imagePiCker.pickImage(source: ImageSource.camera);
+    if (img != null) {
+      listImages.add(File(img.path));
+      notifyListeners();
+    }
+  }
 }
