@@ -17,6 +17,7 @@ class _TouchFaceIDViewState extends State<TouchFaceIDView> {
     controller.addListener(() {
       setState(() {});
     });
+    controller.isDeviceSupported();
     super.initState();
   }
 
@@ -27,6 +28,7 @@ class _TouchFaceIDViewState extends State<TouchFaceIDView> {
         title: const Text("Touch Face ID"),
         actions: [
           Visibility(
+            visible: !controller.isSupported,
             child: Row(
               children: const [Text("Não suportado"), Icon(Icons.dangerous)],
             ),
@@ -38,8 +40,17 @@ class _TouchFaceIDViewState extends State<TouchFaceIDView> {
         children: [
           Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  controller.authorized,
+                  style: const TextStyle(fontSize: 30),
+                ),
+              ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.authentcate();
+                },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: const [
@@ -49,7 +60,9 @@ class _TouchFaceIDViewState extends State<TouchFaceIDView> {
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  controller.authenticateWithBiometrics();
+                },
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: const [
