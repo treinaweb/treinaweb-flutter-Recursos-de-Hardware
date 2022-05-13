@@ -16,6 +16,7 @@ class _SensoresViewState extends State<SensoresView> {
   void initState() {
     controller.getAccelerometer();
     controller.getGyroscope();
+    controller.getMagnetometer();
     controller.addListener(() {
       setState(() {});
     });
@@ -51,8 +52,8 @@ class _SensoresViewState extends State<SensoresView> {
               style: const TextStyle(fontSize: 20),
             ),
             Text(
-              "Magnetômetro:",
-              style: TextStyle(fontSize: 20),
+              "Magnetômetro: ${controller.magnetometerValues}",
+              style: const TextStyle(fontSize: 20),
             )
           ],
         ),
