@@ -6,6 +6,7 @@ import 'package:sensors_plus/sensors_plus.dart';
 class SensoresController extends ChangeNotifier {
   final streamSubscription = <StreamSubscription>[];
   var accelerometerValues = const <double>[];
+  var gyroscopeValues = const <double>[];
 
   void getAccelerometer() {
     streamSubscription.add(
@@ -14,6 +15,13 @@ class SensoresController extends ChangeNotifier {
         notifyListeners();
       }),
     );
+  }
+
+  void getGyroscope() {
+    streamSubscription.add(gyroscopeEvents.listen((event) {
+      gyroscopeValues = _convertValues(event.x, event.y, event.z);
+      notifyListeners();
+    }));
   }
 
   List<double> _convertValues(double evX, double evY, double evZ) {

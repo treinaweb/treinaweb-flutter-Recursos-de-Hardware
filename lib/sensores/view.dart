@@ -15,6 +15,7 @@ class _SensoresViewState extends State<SensoresView> {
   @override
   void initState() {
     controller.getAccelerometer();
+    controller.getGyroscope();
     controller.addListener(() {
       setState(() {});
     });
@@ -43,11 +44,11 @@ class _SensoresViewState extends State<SensoresView> {
           children: [
             Text(
               "Acelerômetro: ${controller.accelerometerValues}",
-              style: TextStyle(fontSize: 20),
+              style: const TextStyle(fontSize: 20),
             ),
             Text(
-              "Giroscópio:",
-              style: TextStyle(fontSize: 20),
+              "Giroscópio: ${controller.gyroscopeValues}",
+              style: const TextStyle(fontSize: 20),
             ),
             Text(
               "Magnetômetro:",
